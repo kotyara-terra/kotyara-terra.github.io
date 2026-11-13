@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Котяра — все ссылки</title>
-  <meta name="description" content="Привет! Тут все мои ссылки — Котяра." />
+  <title>KotYara — все ссылки</title>
+  <meta name="description" content="Привет! Тут все мои ссылки — KotYara." />
   <style>
     :root {
       --bg-black: #060608;
-      --card-bg: #0c0c10;
+      --card-bg: #0b0b0f;
       --card-hover: #121218;
       --card-border: rgba(255, 255, 255, 0.08);
       --card-border-hover: rgba(255, 26, 64, 0.55);
@@ -37,9 +37,9 @@
       position: relative;
       overflow-x: hidden;
       line-height: 1.45;
-      /* Статичный алый перелив + точечный паттерн без коричневых оттенков */
+      /* Статичный алый перелив и точечная сетка на чисто чёрном фоне */
       background-image:
-        radial-gradient(circle at 50% 0%, rgba(255, 23, 60, 0.28) 0%, rgba(158, 0, 28, 0.10) 38%, transparent 70%),
+        radial-gradient(circle at 50% 0%, rgba(255, 23, 60, 0.30) 0%, rgba(158, 0, 28, 0.11) 38%, transparent 70%),
         radial-gradient(circle at 85% 45%, rgba(220, 15, 50, 0.12) 0%, transparent 50%),
         radial-gradient(circle at 15% 80%, rgba(180, 10, 40, 0.12) 0%, transparent 50%),
         radial-gradient(rgba(255, 45, 75, 0.16) 1px, transparent 1px);
@@ -87,14 +87,14 @@
       object-fit: cover;
       border-radius: 50%;
       display: block;
-      background: #0c0c10;
+      background: #0b0b0f;
     }
 
     .avatar-fallback {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: #0c0c10;
+      background: #0b0b0f;
       display: none;
       align-items: center;
       justify-content: center;
@@ -104,7 +104,6 @@
       letter-spacing: 1px;
     }
 
-    /* Статичные искры вокруг аватарки как у Гостика */
     .sparkle {
       position: absolute;
       color: var(--scarlet);
@@ -133,12 +132,11 @@
       align-items: center;
       gap: 8px;
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 26, 64, 0.35);
+      border: 1px solid rgba(255, 26, 64, 0.38);
       color: var(--text-white);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 0.4px;
       padding: 6px 16px;
       border-radius: 999px;
       margin-bottom: 16px;
@@ -197,7 +195,7 @@
       margin-top: -6px;
     }
 
-    /* Сетка карточек */
+    /* Сетка 2 колонки */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -213,7 +211,7 @@
       }
     }
 
-    /* Базовый стиль карточки */
+    /* Базовая карточка */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -225,14 +223,33 @@
       position: relative;
     }
 
-    .card:hover {
+    a.card:hover,
+    .crypto-card:hover {
       background: var(--card-hover);
       border-color: var(--card-border-hover);
       transform: translateY(-2px);
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 26, 64, 0.12);
     }
 
-    /* Карточки Доната (вертикальные плитки как у Гостика) */
+    /* Карточка "Однажды" (неактивная) */
+    .card.coming-soon {
+      cursor: default;
+      opacity: 0.88;
+    }
+
+    .soon-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      padding: 6px 12px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* Карточки Доната */
     .donate-card {
       display: flex;
       flex-direction: column;
@@ -247,7 +264,7 @@
       margin-bottom: 18px;
     }
 
-    /* Горизонтальные карточки (Телеграм и Соцсети) */
+    /* Горизонтальные карточки */
     .social-card {
       display: flex;
       align-items: center;
@@ -266,6 +283,9 @@
       font-weight: 700;
       color: var(--text-white);
       margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .card-desc {
@@ -274,7 +294,18 @@
       line-height: 1.4;
     }
 
-    /* Круглая кнопка со стрелкой ↗ */
+    /* Векторные флаги стран */
+    .flag-icon {
+      width: 20px;
+      height: 14px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: inline-block;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+    }
+
+    /* Круглая стрелка ↗ */
     .arrow-circle {
       width: 30px;
       height: 30px;
@@ -290,13 +321,13 @@
       transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
     }
 
-    .card:hover .arrow-circle {
+    a.card:hover .arrow-circle {
       background: rgba(255, 26, 64, 0.2);
       color: var(--text-white);
       transform: translate(1px, -1px);
     }
 
-    /* Иконки с фирменными акцентными цветами */
+    /* Иконки */
     .icon-box {
       width: 46px;
       height: 46px;
@@ -310,13 +341,21 @@
     .icon-da {
       background: rgba(255, 140, 20, 0.14);
       color: #ff8c14;
-      border: 1px solid rgba(255, 140, 20, 0.25);
+      border: 1px solid rgba(255, 140, 20, 0.28);
     }
 
     .icon-donatello {
-      background: rgba(56, 189, 248, 0.14);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(45, 116, 245, 0.15);
+      color: #2d74f5;
+      border: 1px solid rgba(45, 116, 245, 0.30);
+    }
+
+    .donatello-letter {
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1;
+      color: #2d74f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     .icon-tg {
@@ -341,6 +380,12 @@
       background: rgba(145, 70, 255, 0.15);
       color: #a970ff;
       border: 1px solid rgba(145, 70, 255, 0.28);
+    }
+
+    .icon-dc {
+      background: rgba(88, 101, 242, 0.15);
+      color: #5865F2;
+      border: 1px solid rgba(88, 101, 242, 0.28);
     }
 
     .icon-usdt {
@@ -478,15 +523,15 @@
       <div class="avatar-container">
         <span class="sparkle left">✦</span>
         <div class="avatar-wrap">
-          <img src="avatar.png" alt="Котяра" onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';" />
-          <div id="avatarFallback" class="avatar-fallback">КТ</div>
+          <img src="avatar.png" alt="KotYara" onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';" />
+          <div id="avatarFallback" class="avatar-fallback">KY</div>
         </div>
         <span class="sparkle right">✦</span>
       </div>
 
       <div class="name-badge">
         <span class="name-dot"></span>
-        <span>Котяра</span>
+        <span>KotYara</span>
       </div>
 
       <h1>Привет!</h1>
@@ -498,28 +543,46 @@
       <h2 class="section-title large">Донат</h2>
 
       <div class="grid-2">
+        <!-- DonationAlerts + флаг РФ -->
         <a class="card donate-card" href="https://www.donationalerts.com/r/kotyara_terra" target="_blank" rel="noopener">
           <div class="donate-top">
             <div class="icon-box icon-da">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <!-- Оригинальный логотип DonationAlerts -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 2C3.67 2 3 2.67 3 3.5V16.5C3 17.33 3.67 18 4.5 18H5.8L5.1 22.4C5.03 22.82 5.49 23.11 5.83 22.86L11.6 18H16.2C16.65 18 17.08 17.8 17.37 17.45L20.65 13.55C20.88 13.28 21 12.94 21 12.58V7.42C21 7.06 20.88 6.72 20.65 6.45L17.37 2.55C17.08 2.2 16.65 2 16.2 2H4.5ZM7.2 5.5H15.1L17.4 8.2V11.8L15.1 14.5H7.2V5.5ZM10.9 7.1H13.1V11.1H10.9V7.1ZM10.9 11.9H13.1V13.4H10.9V11.9Z"/>
+              </svg>
             </div>
             <span class="arrow-circle">↗</span>
           </div>
           <div>
-            <div class="card-title">DonationAlerts</div>
+            <div class="card-title">
+              <span>DonationAlerts</span>
+              <svg class="flag-icon" viewBox="0 0 9 6" aria-label="РФ">
+                <rect width="9" height="2" y="0" fill="#ffffff"/>
+                <rect width="9" height="2" y="2" fill="#0039A6"/>
+                <rect width="9" height="2" y="4" fill="#D52B1E"/>
+              </svg>
+            </div>
             <div class="card-desc">Для РФ и СНГ: донат через страницу автора, в том числе через СБП.</div>
           </div>
         </a>
 
+        <!-- Donatello + синяя буква D + флаг Украины -->
         <a class="card donate-card" href="https://donatello.to/kotyara_terra" target="_blank" rel="noopener">
           <div class="donate-top">
             <div class="icon-box icon-donatello">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="donatello-letter">D</span>
             </div>
             <span class="arrow-circle">↗</span>
           </div>
           <div>
-            <div class="card-title">Donatello</div>
+            <div class="card-title">
+              <span>Donatello</span>
+              <svg class="flag-icon" viewBox="0 0 9 6" aria-label="Украина">
+                <rect width="9" height="3" y="0" fill="#0057B7"/>
+                <rect width="9" height="3" y="3" fill="#FFD700"/>
+              </svg>
+            </div>
             <div class="card-desc">Для украинцев: быстрая поддержка через Donatello.</div>
           </div>
         </a>
@@ -536,13 +599,12 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
           </div>
           <div class="card-body">
-            <div class="card-title">Основной телеграм</div>
+            <div class="card-title">Основной ТГК</div>
             <div class="card-desc">Все новости, анонсы стримов и жизнь канала</div>
           </div>
           <span class="arrow-circle">↗</span>
         </a>
 
-        <!-- ПРОВЕРЬ ТОЧНЫЙ ЮЗЕРНЕЙМ ВО ВТОРОЙ КАРТОЧКЕ НИЖЕ -->
         <a class="card social-card" href="https://t.me/kotyara_69" target="_blank" rel="noopener">
           <div class="icon-box icon-tg">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
@@ -567,7 +629,7 @@
           </div>
           <div class="card-body">
             <div class="card-title">YouTube</div>
-            <div class="card-desc">Кому хочется длинных видео и Shorts</div>
+            <div class="card-desc">Чисто шортики</div>
           </div>
           <span class="arrow-circle">↗</span>
         </a>
@@ -578,7 +640,7 @@
           </div>
           <div class="card-body">
             <div class="card-title">TikTok</div>
-            <div class="card-desc">Короткие видосы и регулярные стримчики</div>
+            <div class="card-desc">Короткие видосики и стримчики</div>
           </div>
           <span class="arrow-circle">↗</span>
         </a>
@@ -589,14 +651,26 @@
           </div>
           <div class="card-body">
             <div class="card-title">Twitch</div>
-            <div class="card-desc">Чисто стримчики для легенд</div>
+            <div class="card-desc">Чисто стримчики</div>
           </div>
           <span class="arrow-circle">↗</span>
         </a>
+
+        <!-- Discord (скоро) -->
+        <div class="card social-card coming-soon">
+          <div class="icon-box icon-dc">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Discord</div>
+            <div class="card-desc">Discord-сервер, который ещё не готов</div>
+          </div>
+          <span class="soon-pill">Однажды</span>
+        </div>
       </div>
     </section>
 
-    <!-- ДОНАТ КРИПТОЙ -->
+    <!-- ДОНАТ КРИПТОЙ (когда создашь кошельки — впиши свои адреса вместо заглушек) -->
     <section class="section">
       <div class="section-title-row">
         <span class="coin-badge">₮</span>
@@ -635,7 +709,7 @@
       </div>
     </section>
 
-    <footer><span>✦</span> Спасибо, что ты здесь! Котяра <span>✦</span></footer>
+    <footer><span>✦</span> Спасибо, что ты здесь! <span>✦</span></footer>
   </main>
 
   <div id="toast" class="toast">Адрес скопирован!</div>
