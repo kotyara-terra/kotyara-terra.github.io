@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KotYara_terra — все ссылки</title>
+  <meta name="description" content="Все официальные ссылки KotYara_terra: донаты, Telegram, YouTube, TikTok и Twitch." />
+  <style>
+    :root {
+      --bg-main: #0b090a;
+      --bg-card: rgba(24, 18, 20, 0.82);
+      --bg-card-hover: rgba(38, 24, 28, 0.95);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(229, 56, 59, 0.55);
+      --accent: #e5383b;
+      --accent-glow: rgba(186, 24, 27, 0.35);
+      --text-main: #f5f3f4;
+      --text-muted: #a49ea0;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px 48px;
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.45;
+    }
+
+    /* Фоновое рубиновое свечение */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -140px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 540px;
+      height: 360px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, rgba(11, 9, 10, 0) 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Шапка профиля */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .avatar-wrap {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #e5383b, #660708);
+      box-shadow: 0 0 28px rgba(229, 56, 59, 0.35);
+      position: relative;
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      background: #1a1214;
+    }
+
+    .avatar-fallback {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2b1216, #140b0d);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+      color: #ff6b6b;
+      letter-spacing: 1px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(229, 56, 59, 0.14);
+      border: 1px solid rgba(229, 56, 59, 0.32);
+      color: #ffccd5;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.88); }
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 360px;
+    }
+
+    /* Аккордеон (TikTok инструкция и Топ-10) */
+    details.accordion {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.2s ease;
+    }
+
+    details.accordion[open] {
+      border-color: rgba(229, 56, 59, 0.38);
+    }
+
+    details.accordion summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 13px 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+
+    details.accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .chevron {
+      transition: transform 0.25s ease;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    details.accordion[open] .chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      padding: 0 16px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 12px;
+    }
+
+    .accordion-body ol {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .accordion-body b {
+      color: var(--text-main);
+    }
+
+    /* Секции */
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      padding-left: 4px;
+    }
+
+    /* Карточки-ссылки */
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      cursor: pointer;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .link-card:active {
+      transform: scale(0.985);
+    }
+
+    .icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .icon-da { background: rgba(245, 117, 7, 0.18); color: #ff8c24; }
+    .icon-donatello { background: rgba(56, 189, 248, 0.16); color: #38bdf8; }
+    .icon-tg { background: rgba(38, 165, 228, 0.18); color: #38bdf8; }
+    .icon-yt { background: rgba(239, 68, 68, 0.18); color: #f87171; }
+    .icon-tt { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
+    .icon-tw { background: rgba(168, 85, 247, 0.18); color: #c084fc; }
+    .icon-crypto { background: rgba(16, 185, 129, 0.16); color: #34d399; }
+
+    .link-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .link-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .arrow {
+      color: var(--text-muted);
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.18s ease, color 0.18s ease;
+    }
+
+    .link-card:hover .arrow {
+      transform: translate(2px, -2px);
+      color: var(--text-main);
+    }
+
+    /* Крипто-карточки */
+    .crypto-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 0 4px;
+      margin-top: -4px;
+    }
+
+    .wallet-addr {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11.5px;
+      color: #d4d4d8;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 4px 8px;
+      border-radius: 8px;
+      margin-top: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .copy-pill {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      flex-shrink: 0;
+    }
+
+    /* Список Топ-10 */
+    .top-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 13px;
+    }
+
+    .top-row.gold {
+      background: rgba(234, 179, 8, 0.12);
+      border: 1px solid rgba(234, 179, 8, 0.25);
+      color: #fef08a;
+      font-weight: 700;
+    }
+
+    .top-sum {
+      font-weight: 700;
+      color: #fca5a5;
+    }
+
+    .top-row.gold .top-sum {
+      color: #fde047;
+    }
+
+    /* Футер */
+    footer {
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Всплывающее уведомление */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #1f1618;
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      z-index: 99;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+    <!-- ШАПКА -->
+    <header class="profile">
+      <div class="avatar-wrap">
+        <!-- Загрузи свою аватарку в репозиторий под именем avatar.png или avatar.gif -->
+        <img src="avatar.png" alt="KotYara_terra" onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';" />
+        <div id="avatarFallback" class="avatar-fallback">KT</div>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>KotYara_terra · на связи</span>
+      </div>
+      <h1>Привет! Тут все мои ссылки</h1>
+      <p class="subtitle">Стримы по Roblox, видосы, анонсы подрубов и поддержка канала в одном месте</p>
+    </header>
+
+    <!-- ПАМЯТКА ДЛЯ TIKTOK -->
+    <details class="accordion">
+      <summary>
+        <span>⚠️ Что делать, если ссылка не открывается?</span>
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="accordion-body">
+        <ol>
+          <li>Если ты открыл эту страницу из <b>TikTok</b>, нажми на три точки <b>«•••»</b> в правом верхнем углу экрана.</li>
+          <li>Выбери пункт <b>«Открыть в браузере»</b> (Chrome или Safari).</li>
+          <li>В обычном браузере все ссылки на Telegram и донаты откроются без ограничений.</li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- БЛОК ДОНАТОВ -->
+    <section class="section">
+      <div class="section-title">❤️ Поддержать стрим</div>
+
+      <!-- ПРОВЕРЬ СВОЮ ТОЧНУЮ ССЫЛКУ DONATIONALERTS -->
+      <a class="link-card" href="https://www.donationalerts.com/r/kotyara_terra" target="_blank" rel="noopener">
+        <div class="icon-box icon-da">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">DonationAlerts (РФ и СНГ)</div>
+          <div class="link-desc">СБП, карты РФ и мира · от 200 ₽ — слот в друзья в Roblox</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+
+      <!-- ЗАМЕНИ ССЫЛКУ НИЖЕ НА СВОЮ СТРАНИЦУ DONATELLO (если подключил) -->
+      <a class="link-card" href="https://donatello.to/kotyara_terra" target="_blank" rel="noopener">
+        <div class="icon-box icon-donatello">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">Donatello (Для Украины 🇺🇦)</div>
+          <div class="link-desc">Оплата в 1 клик через Apple Pay / Google Pay и карты Укр</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+
+    <!-- ТЕЛЕГРАМ -->
+    <section class="section">
+      <div class="section-title">✈️ Telegram</div>
+
+      <a class="link-card" href="https://t.me/kotYara_terra" target="_blank" rel="noopener">
+        <div class="icon-box icon-tg">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">Основной Telegram-канал</div>
+          <div class="link-desc">Анонсы стримов, новости, общение и движ канала</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+
+    <!-- СОЦСЕТИ -->
+    <section class="section">
+      <div class="section-title">🎮 Соцсети и стримы</div>
+
+      <a class="link-card" href="https://www.youtube.com/@kotyara_terra" target="_blank" rel="noopener">
+        <div class="icon-box icon-yt">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">YouTube</div>
+          <div class="link-desc">Длинные ролики и Shorts по Roblox</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="link-card" href="https://www.tiktok.com/@kotyara_terra2.0" target="_blank" rel="noopener">
+        <div class="icon-box icon-tt">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">TikTok</div>
+          <div class="link-desc">Короткие видосы и регулярные эфиры</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="link-card" href="https://www.twitch.tv/kotyara_terra" target="_blank" rel="noopener">
+        <div class="icon-box icon-tw">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">Twitch</div>
+          <div class="link-desc">Ламповые стримчики и игры со зрителями</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+
+    <!-- ТОП-10 ДОНАТЕРОВ (РАСКРЫВАЮЩИЙСЯ БЛОК) -->
+    <details class="accordion">
+      <summary>
+        <span>🏆 Топ-10 легенд стрима (за всё время)</span>
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="accordion-body">
+        <div class="top-list">
+          <div class="top-row gold"><span>🥇 1. Глава картеля</span><span class="top-sum">107 020 ₽</span></div>
+          <div class="top-row"><span>🥈 2. kir</span><span class="top-sum">11 450 ₽</span></div>
+          <div class="top-row"><span>🥉 3. Акира</span><span class="top-sum">9 618 ₽</span></div>
+          <div class="top-row"><span>4. Cooki</span><span class="top-sum">5 010 ₽</span></div>
+          <div class="top-row"><span>5. Cepitok</span><span class="top-sum">3 982 ₽</span></div>
+          <div class="top-row"><span>6. Ghost</span><span class="top-sum">2 570 ₽</span></div>
+          <div class="top-row"><span>7. TheProjectDEV</span><span class="top-sum">2 400 ₽</span></div>
+          <div class="top-row"><span>8. Abobys</span><span class="top-sum">2 334 ₽</span></div>
+          <div class="top-row"><span>9. Хряк</span><span class="top-sum">2 176 ₽</span></div>
+          <div class="top-row"><span>10. Батя аноним</span><span class="top-sum">2 072 ₽</span></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ДОНАТ КРИПТОЙ (ЗАМЕНИ АДРЕСА НА СВОИ ИЛИ УДАЛИ ЭТУ СЕКЦИЮ, ЕСЛИ НЕ НУЖНА) -->
+    <section class="section">
+      <div class="section-title">🪙 Донат криптой</div>
+      <p class="crypto-note">Нажми на карточку, чтобы скопировать адрес кошелька в 1 клик:</p>
+
+      <div class="link-card" onclick="copyWallet('ВСТАВЬ_СВОЙ_USDT_TRC20_АДРЕС')">
+        <div class="icon-box icon-crypto">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">USDT · Сеть TRC-20</div>
+          <div class="wallet-addr">ВСТАВЬ_СВОЙ_USDT_TRC20_АДРЕС</div>
+        </div>
+        <span class="copy-pill">Копировать</span>
+      </div>
+
+      <div class="link-card" onclick="copyWallet('ВСТАВЬ_СВОЙ_USDT_BEP20_АДРЕС')">
+        <div class="icon-box icon-crypto">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </div>
+        <div class="link-info">
+          <div class="link-title">USDT · Сеть BEP-20</div>
+          <div class="wallet-addr">ВСТАВЬ_СВОЙ_USDT_BEP20_АДРЕС</div>
+        </div>
+        <span class="copy-pill">Копировать</span>
+      </div>
+    </section>
+
+    <footer>✦ Спасибо, что ты здесь! KotYara_terra ✦</footer>
+  </main>
+
+  <div id="toast" class="toast">Адрес скопирован! 🎉</div>
+
+  <script>
+    function copyWallet(address) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(address).then(showToast).catch(() => fallbackCopy(address));
+      } else {
+        fallbackCopy(address);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const el = document.createElement("textarea");
+      el.value = text;
+      el.style.position = "fixed";
+      el.style.opacity = "0";
+      document.body.appendChild(el);
+      el.focus();
+      el.select();
+      try {
+        document.execCommand("copy");
+        showToast();
+      } catch (e) {}
+      document.body.removeChild(el);
+    }
+
+    let toastTimer;
+    function showToast() {
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+  </script>
+</body>
+</html>
